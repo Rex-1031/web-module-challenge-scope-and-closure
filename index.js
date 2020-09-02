@@ -84,6 +84,8 @@ function finalScore(/*code Here*/){
 
 /* Task 4: 
 
+Note: this task is not related to the task 3, but does relate to tasks 1 and 2
+
 Create a function called `scoreboard` that accepts the following parameters: 
 
 (1) Callback function `inning` that you wrote above
