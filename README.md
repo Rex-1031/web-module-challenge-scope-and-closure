@@ -42,6 +42,8 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+    Variables declared within a function will be enclosed within the private scope of the function. These variables are not accessable from outside of the function. However, when a variable isnt defined within a function, it can be sought after outside of the function. This is closure. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +65,15 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+    The closure is at the return statement of personalDice function. This anonymous function is contained within the function so it is not accessible from the outside. This function can access data from outside the function. 
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+
+
+
+c. What is the lexical scope of `newRoll`?  
+
+    Anything within the personalDice function.
 
 ### Task 2c - Exit Ticket
 

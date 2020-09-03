@@ -28,9 +28,13 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
- * 2. Which of the two uses a closure? How can you tell?
+ *    counter1 has the variable count inside of the function counterMaker. In counter2 the variable is hoisted.
  * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 2. Which of the two uses a closure? How can you tell?
+ *      counter1 uses closure.  Function counter is nested within counterMaker and is has access to all of the content within that function. It     could also reach out and grab variables that are not within the function. 
+ * 
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ *      Counter1 would be preferable when you are trying to protect the code.  Counter2 two would be good if you 
  *
 */
 
@@ -56,9 +60,9 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+    return Math.floor(Math.random()*3)
 
 }
 
@@ -76,35 +80,65 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, numberOfInnings){
+let home = 0;
+let away = 0;
+for(let i = 0; i <= numberOfInnings; i++){
+  home = home + inning();
+  away = away + inning();
 }
+  return {Home: home, Away:away}
+}
+console.log(finalScore(inning, 9));
+
 
 /* Task 4: 
+Create a function called `scoreboard` that accepts the following parameters:
 
-Create a function called `scoreboard` that accepts the following parameters: 
-
-(1) Callback function `inning` that you wrote above
-(2) A number of innings
+(1) Callback function `getInningScore`
+(2) Callback function `inning`
+(3) A number of innings
 
 and returns the score at each pont in the game, like so:
+1st inning: awayTeam - homeTeam
+2nd inning: awayTeam - homeTeam
+3rd inning: awayTeam - homeTeam
+4th inning: awayTeam - homeTeam
+5th inning: awayTeam - homeTeam
+6th inning: awayTeam - homeTeam
+7th inning: awayTeam - homeTeam
+8th inning: awayTeam - homeTeam
+9th inning: awayTeam - homeTeam
+Final Score: awayTeam - homeTeam */
 
-1st inning: 0 - 2
-2nd inning: 1 - 3
-3rd inning: 1 - 3
-4th inning: 2 - 4
-5th inning: 4 - 6
-6th inning: 4 - 6
-7th inning: 4 - 6
-8th inning: 5 - 8
-9th inning: 6 - 10
 
-Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore (callBack){
+  let home = 0;
+  let away = 0;
+for(let i = 0; i <= inningNumber; i++){
+  home =+ inning();
+  away =+ inning();
+}
+  return home, away;
+
 }
 
+
+function scoreboard(callBack1, callBack2, inningNumber) {
+  if (inningNumber === 1){
+    return `1st inning: ${away} - ${home}`;
+  }
+  else if (inningNumber === 2){
+    return `2nd inning: ${away} - ${home}`;
+  }
+  else if (inningNumber === 3){
+    return `3rd inning: ${away} - ${home}`;
+  }else{
+    return `${inningNumber}th inning: ${away} - ${home}`;
+  }
+  return `Final Score: $`
+}
+
+console.log(scoreboard(getInningScore, inning, 9));
 
