@@ -28,9 +28,13 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
- * 2. Which of the two uses a closure? How can you tell?
+ *    counter1 has the variable count inside of the function counterMaker. In counter2 the variable is hoisted.
  * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 2. Which of the two uses a closure? How can you tell?
+ *      counter1 uses closure.  Function counter is nested within counterMaker and is has access to all of the content within that function. It     could also reach out and grab variables that are not within the function. 
+ * 
+ * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better?
+ *      Counter1 would be preferable when you are trying to protect the code.  Counter2 two would be good if you 
  *
 */
 
@@ -76,7 +80,7 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(inning, numberOfInnings){
+function finalScore(callback, numberOfInnings){
 let home = 0;
 let away = 0;
 for(let i = 0; i <= numberOfInnings; i++){
@@ -109,9 +113,32 @@ Final Score: awayTeam - homeTeam */
 
 
 
+function getInningScore (callBack){
+  let home = 0;
+  let away = 0;
+for(let i = 0; i <= inningNumber; i++){
+  home =+ inning();
+  away =+ inning();
+}
+  return home, away;
 
-function scoreboard(getInningScore, inning, inningNumber) {
-  /* CODE HERE */
 }
 
+
+function scoreboard(callBack1, callBack2, inningNumber) {
+  if (inningNumber === 1){
+    return `1st inning: ${away} - ${home}`;
+  }
+  else if (inningNumber === 2){
+    return `2nd inning: ${away} - ${home}`;
+  }
+  else if (inningNumber === 3){
+    return `3rd inning: ${away} - ${home}`;
+  }else{
+    return `${inningNumber}th inning: ${away} - ${home}`;
+  }
+  return `Final Score: $`
+}
+
+console.log(scoreboard(getInningScore, inning, 9));
 
